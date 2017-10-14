@@ -116,7 +116,7 @@ void CPoissonDoc::Calculate()
 
 	// solve it
 
-	Eigen::VectorXcd field = Poisson::PoissonSolver::SolveToRealSpace(fft, realSpaceCell, reciprocalCell, charges.ChargeDensity);
+	Eigen::VectorXcd field = Poisson::PoissonSolver::SolveToRealSpace(fft, realSpaceCell, reciprocalCell, charges);
 
 	// slice the result - put the values in the 'image' data for VTK
 

@@ -8,6 +8,7 @@
 #include "Numerics.h"
 #include "RealSpace.h"
 #include "ReciprocalSpace.h"
+#include "GaussianChargeDistribution.h"
 
 namespace Poisson {
 
@@ -17,11 +18,14 @@ namespace Poisson {
 		PoissonSolver();
 		~PoissonSolver();
 
-		static inline Eigen::VectorXcd SolveToReciprocalSpace(Fourier::FFT& fftSolver, Poisson::RealSpaceCell& realSpaceCell, Poisson::ReciprocalSpaceCell& reciprocalCell, Eigen::VectorXcd &chargeDensity)		
+		static inline Eigen::VectorXcd SolveToReciprocalSpace(Fourier::FFT& fftSolver, Poisson::RealSpaceCell& realSpaceCell, Poisson::ReciprocalSpaceCell& reciprocalCell, Charges &charges)		
 		{
 			Eigen::VectorXcd fieldReciprocal(realSpaceCell.Samples());
 
-			fftSolver.fwd(chargeDensity.data(), fieldReciprocal.data(), realSpaceCell.GetSamples().X, realSpaceCell.GetSamples().Y, realSpaceCell.GetSamples().Z);
+			fftSolver.fwd(charges.ChargeDensity.data(), fieldReciprocal.data(), realSpaceCell.GetSamples().X, realSpaceCell.GetSamples().Y, realSpaceCell.GetSamples().Z);
+
+			// uncomment this line and comment the two above if you want a faster solution			
+			//Eigen::VectorXcd fieldReciprocal = realSpaceCell.Samples() * charges.rg;
 
 			fieldReciprocal(0) = 0;
 			for (int i = 1; i < realSpaceCell.Samples(); ++i)
@@ -33,9 +37,9 @@ namespace Poisson {
 			return fieldReciprocal;
 		}
 
-		static inline Eigen::VectorXcd SolveToRealSpace(Fourier::FFT& fftSolver, Poisson::RealSpaceCell& realSpaceCell, Poisson::ReciprocalSpaceCell& reciprocalCell, Eigen::VectorXcd &chargeDensity)
+		static inline Eigen::VectorXcd SolveToRealSpace(Fourier::FFT& fftSolver, Poisson::RealSpaceCell& realSpaceCell, Poisson::ReciprocalSpaceCell& reciprocalCell, Charges &charges)
 		{
-			Eigen::VectorXcd fieldReciprocal = SolveToReciprocalSpace(fftSolver, realSpaceCell, reciprocalCell, chargeDensity);
+			Eigen::VectorXcd fieldReciprocal = SolveToReciprocalSpace(fftSolver, realSpaceCell, reciprocalCell, charges);
 
 			Eigen::VectorXcd field(realSpaceCell.Samples());
 

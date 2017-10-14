@@ -61,7 +61,7 @@ namespace Poisson {
 
 			TRACE(L"Gaussian normalization check: %f\n", g.sum().real()*realSpaceCell.SampleVolume());
 
-			Eigen::VectorXcd rg(size);
+			rg.resize(size);
 
 			fftSolver.fwd(g.data(), rg.data(), realSpaceCell.GetSamples().X, realSpaceCell.GetSamples().Y, realSpaceCell.GetSamples().Z);
 
@@ -79,6 +79,7 @@ namespace Poisson {
 
 		Eigen::VectorXcd StructureFactor;
 		Eigen::VectorXcd ChargeDensity;
+		Eigen::VectorXcd rg;
 	};
 
 
