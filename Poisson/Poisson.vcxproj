@@ -208,6 +208,7 @@
     <ClInclude Include="Numerics.h" />
     <ClInclude Include="Poisson.h" />
     <ClInclude Include="PoissonDoc.h" />
+    <ClInclude Include="PoissonSolver.h" />
     <ClInclude Include="PoissonView.h" />
     <ClInclude Include="RealSpace.h" />
     <ClInclude Include="ReciprocalSpace.h" />

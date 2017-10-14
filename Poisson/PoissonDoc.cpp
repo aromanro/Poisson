@@ -38,7 +38,6 @@ CPoissonDoc::CPoissonDoc()
 	:  realSpaceCell(6, 6, 6, 64, 64, 64),
 	reciprocalCell(realSpaceCell)
 {
-	// TODO: add one-time construction code here
 	densityImage = vtkImageData::New();
 	fieldImage = vtkImageData::New();
 
