@@ -117,6 +117,7 @@ void CPoissonView::OnDraw(CDC* pDC)
 	}
 
 	// Invoke the pipeline
+	Pipeline();				
 
 	if (pDC->IsPrinting())
 	{
@@ -182,11 +183,15 @@ void CPoissonView::OnDraw(CDC* pDC)
 		DeleteObject(dib);
 		DeleteDC(MemoryHdc);
 
+		// in debug this crashes
+#ifndef _DEBUG
+		delete[] pixels;
+#endif
+
 		EndWaitCursor();
 	}
 	else
 	{
-		Pipeline();				
 		renWin->Render();
 	}
 }
