@@ -1,7 +1,7 @@
 # Poisson
 Solving Poisson equation using a spectral method, also introducing VTK which will probably be used for other projects
 
-Description coming soon on https://compphys.go.ro/
+Description on https://compphys.go.ro/solving-poisson-equation/
 
 ### PROGRAM IN ACTION
 
