@@ -12,16 +12,17 @@
 #include "PoissonDoc.h"
 #include "PoissonView.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 #include <vtkAutoInit.h>
 
 VTK_MODULE_INIT(vtkRenderingOpenGL2);
 VTK_MODULE_INIT(vtkInteractionStyle);
 VTK_MODULE_INIT(vtkRenderingFreeType);
 VTK_MODULE_INIT(vtkRenderingVolumeOpenGL2);
+
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#endif
+
 
 
 // CPoissonView
@@ -37,7 +38,6 @@ BEGIN_MESSAGE_MAP(CPoissonView, CView)
 	ON_WM_RBUTTONUP()
 	ON_WM_SIZE()
 	ON_WM_ERASEBKGND()
-	ON_WM_CREATE()
 END_MESSAGE_MAP()
 
 // CPoissonView construction/destruction
