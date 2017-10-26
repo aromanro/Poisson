@@ -47,10 +47,8 @@ CPoissonDoc::CPoissonDoc()
 	fieldImage->SetSpacing(realSpaceCell.GetSize().Y/realSpaceCell.GetSamples().Y, realSpaceCell.GetSize().Z/realSpaceCell.GetSamples().Z, 0);
 	fieldImage->SetDimensions(realSpaceCell.GetSamples().Y, realSpaceCell.GetSamples().Z, 1); //number of points in each direction
 
-
-	const int planesamples = realSpaceCell.GetSamples().Y * realSpaceCell.GetSamples().Z;
-	densityImage->AllocateScalars(VTK_FLOAT, planesamples);
-	fieldImage->AllocateScalars(VTK_FLOAT, planesamples);
+	densityImage->AllocateScalars(VTK_FLOAT, 1);
+	fieldImage->AllocateScalars(VTK_FLOAT, 1);
 
 	Calculate();
 }
