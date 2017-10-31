@@ -116,9 +116,7 @@ void CPoissonView::OnDraw(CDC* pDC)
 		ren2->ResetCamera();
 	}
 
-	// Invoke the pipeline
-	Pipeline();				
-
+			
 	if (pDC->IsPrinting())
 	{
 		BeginWaitCursor();
@@ -443,4 +441,6 @@ void CPoissonView::OnInitialUpdate()
 	textActor->GetTextProperty()->SetFontSize(36);
 	textActor->GetTextProperty()->SetColor(0., 1.0, 0.);
 	ren2->AddActor2D(textActor);
+
+	Pipeline();
 }
