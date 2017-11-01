@@ -377,7 +377,13 @@ void CPoissonView::OnInitialUpdate()
 
 	renWin->SetParentId(GetSafeHwnd());		
 
-	iren->SetRenderWindow(renWin);	
+	iren->SetRenderWindow(renWin);
+
+	CRect rect;
+
+	GetClientRect(&rect);
+	iren->Initialize();
+	renWin->SetSize(rect.right - rect.left, rect.bottom - rect.top);
 
 
 	ren1->GetActiveCamera()->SetFocalPoint(pDoc->realSpaceCell.GetSize().Y/2, pDoc->realSpaceCell.GetSize().Z/2, 0);
