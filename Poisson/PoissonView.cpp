@@ -390,7 +390,6 @@ void CPoissonView::OnInitialUpdate()
 	ren1->GetActiveCamera()->SetPosition(0, -pDoc->realSpaceCell.GetSize().Z * 2, pDoc->realSpaceCell.GetSize().Z * 2);
 	ren1->GetActiveCamera()->Elevation(10);	
 	ren1->GetActiveCamera()->ComputeViewPlaneNormal();
-	ren1->ResetCamera();
 
 	ren1->SetBackground(0.1, 0.3, 0.4);	
 	ren1->SetViewport(0., 0., 0.5, 1.);
@@ -399,8 +398,6 @@ void CPoissonView::OnInitialUpdate()
 	ren2->GetActiveCamera()->SetPosition(0, -pDoc->realSpaceCell.GetSize().Z * 2, pDoc->realSpaceCell.GetSize().Z * 2);
 	ren2->GetActiveCamera()->Elevation(10);
 	ren2->GetActiveCamera()->ComputeViewPlaneNormal();
-	ren2->ResetCamera();
-
 
 	ren2->SetBackground(0.1, 0.25, 0.4);	
 	ren2->SetViewport(0.5, 0., 1., 1.);
