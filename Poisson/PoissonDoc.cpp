@@ -141,7 +141,11 @@ void CPoissonDoc::Calculate()
 		
 	double numericalResult = (fieldReciprocal.adjoint() * densityReciprocal)(0).real()/2.;
 
-	double Uself=1./(2*sqrt(M_PI))*(1/sigma)*charges.charges.size();
+
+	double Uself = 0;
+	for (const auto& charge : charges.charges)
+		Uself += charge.Z * charge.Z / (2 * sqrt(M_PI)) * (1 / sigma);
+	
 
 	TRACE(L"Ewald energy: %f\n", numericalResult - Uself);
 }
