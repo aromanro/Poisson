@@ -50,11 +50,11 @@ namespace Poisson {
 			Eigen::VectorXcd g(size);
 
 
-			Vector3D<double> center = realSpaceCell.GetSize() / 2.;
+			const Vector3D<double> center = realSpaceCell.GetSize() / 2.;
 	
 			for (int i = 0; i < size; ++i)
 			{
-				Vector3D<double> distanceVector(realSpaceCell.SamplePoints(i) - center);
+				const Vector3D<double> distanceVector(realSpaceCell.SamplePoints(i) - center);
 
 				g(i) = Poisson::Numerics::Gaussian3D(distanceVector.Length(), sigma);
 			}

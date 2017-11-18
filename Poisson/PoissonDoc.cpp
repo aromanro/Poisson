@@ -139,12 +139,12 @@ void CPoissonDoc::Calculate()
 	densityReciprocal *= realSpaceCell.SampleVolume();
 	fieldReciprocal  /= realSpaceCell.Samples();
 		
-	double numericalResult = (fieldReciprocal.adjoint() * densityReciprocal)(0).real()/2.;
+	const double numericalResult = (fieldReciprocal.adjoint() * densityReciprocal)(0).real()/2.;
 
 
 	double Uself = 0;
-	for (const auto& charge : charges.charges)
-		Uself += charge.Z * charge.Z / (2 * sqrt(M_PI)) * (1 / sigma);
+	for (const auto& chg : charges.charges)
+		Uself += chg.Z * chg.Z / (2 * sqrt(M_PI)) * (1 / sigma);
 	
 
 	TRACE(L"Ewald energy: %f\n", numericalResult - Uself);

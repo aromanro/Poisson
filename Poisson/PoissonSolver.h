@@ -18,7 +18,7 @@ namespace Poisson {
 		PoissonSolver();
 		~PoissonSolver();
 
-		static inline Eigen::VectorXcd SolveToReciprocalSpace(Fourier::FFT& fftSolver, Poisson::RealSpaceCell& realSpaceCell, Poisson::ReciprocalSpaceCell& reciprocalCell, Charges &charges)		
+		static inline Eigen::VectorXcd SolveToReciprocalSpace(Fourier::FFT& fftSolver, const Poisson::RealSpaceCell& realSpaceCell, Poisson::ReciprocalSpaceCell& reciprocalCell, Charges &charges)		
 		{
 			Eigen::VectorXcd fieldReciprocal(realSpaceCell.Samples());
 
