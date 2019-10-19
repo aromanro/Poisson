@@ -144,7 +144,7 @@ void CPoissonDoc::Calculate()
 
 	double Uself = 0;
 	for (const auto& chg : charges.charges)
-		Uself += chg.Z * chg.Z / (2 * sqrt(M_PI)) * (1 / sigma);
+		Uself += static_cast<double>(chg.Z) * chg.Z / (2. * sqrt(M_PI)) * (1. / sigma);
 	
 
 	TRACE(L"Ewald energy: %f\n", numericalResult - Uself);

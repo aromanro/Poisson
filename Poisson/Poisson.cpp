@@ -31,6 +31,7 @@ END_MESSAGE_MAP()
 // CPoissonApp construction
 
 CPoissonApp::CPoissonApp()
+	: m_nAppLook(0)
 {
 	m_bHiColorIcons = TRUE;
 
