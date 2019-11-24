@@ -46,7 +46,6 @@ namespace Poisson {
 
 			// charge density
 
-
 			Eigen::VectorXcd g(size);
 
 

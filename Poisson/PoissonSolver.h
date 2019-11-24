@@ -20,12 +20,12 @@ namespace Poisson {
 
 		static inline Eigen::VectorXcd SolveToReciprocalSpace(Fourier::FFT& fftSolver, const Poisson::RealSpaceCell& realSpaceCell, Poisson::ReciprocalSpaceCell& reciprocalCell, Charges &charges)		
 		{
-			Eigen::VectorXcd fieldReciprocal(realSpaceCell.Samples());
+			//transform charge density from real space to reciprocal space:
+			//Eigen::VectorXcd fieldReciprocal(realSpaceCell.Samples());
+			//fftSolver.fwd(charges.ChargeDensity.data(), fieldReciprocal.data(), realSpaceCell.GetSamples().X, realSpaceCell.GetSamples().Y, realSpaceCell.GetSamples().Z);
 
-			fftSolver.fwd(charges.ChargeDensity.data(), fieldReciprocal.data(), realSpaceCell.GetSamples().X, realSpaceCell.GetSamples().Y, realSpaceCell.GetSamples().Z);
-
-			// uncomment this line and comment the two above if you want a faster solution			
-			//Eigen::VectorXcd fieldReciprocal = realSpaceCell.Samples() * charges.rg;
+			//or use the faster method, since we already have it in 'rg': 			
+			Eigen::VectorXcd fieldReciprocal = realSpaceCell.Samples() * charges.rg;
 
 			fieldReciprocal(0) = 0;
 			for (int i = 1; i < realSpaceCell.Samples(); ++i)
