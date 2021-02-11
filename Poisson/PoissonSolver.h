@@ -43,7 +43,7 @@ namespace Poisson {
 
 			Eigen::VectorXcd field(realSpaceCell.Samples());
 
-			fftSolver.inv(fieldReciprocal.data(),field.data(),realSpaceCell.GetSamples().X, realSpaceCell.GetSamples().Y, realSpaceCell.GetSamples().Z);
+			fftSolver.inv(fieldReciprocal.data(), field.data(), realSpaceCell.GetSamples().X, realSpaceCell.GetSamples().Y, realSpaceCell.GetSamples().Z);
 
 			return field;
 		}
