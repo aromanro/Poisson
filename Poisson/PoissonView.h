@@ -38,12 +38,8 @@ protected: // create from serialization only
 // Attributes
 public:
 	CPoissonDoc* GetDocument() const;
-
 // Operations
-public:
-
 // Overrides
-public:
 	virtual void OnDraw(CDC* pDC);  // overridden to draw this view
 protected:
 	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
@@ -87,7 +83,6 @@ private:
 #endif
 
 protected:
-
 // Generated message map functions
 protected:
 	afx_msg void OnFilePrintPreview();

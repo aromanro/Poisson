@@ -47,7 +47,5 @@ namespace Poisson {
 
 			return field;
 		}
-
 	};
-
 }
