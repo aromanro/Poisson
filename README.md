@@ -1,6 +1,8 @@
 # Poisson
 Solving Poisson equation using a spectral method, also introducing VTK which will probably be used for other projects
 
+[![CodeFactor](https://www.codefactor.io/repository/github/aromanro/poisson/badge)](https://www.codefactor.io/repository/github/aromanro/poisson)
+
 Description on https://compphys.go.ro/solving-poisson-equation/
 
 ### PROGRAM IN ACTION
