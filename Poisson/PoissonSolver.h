@@ -18,7 +18,7 @@ namespace Poisson {
 		PoissonSolver();
 		~PoissonSolver();
 
-		static inline Eigen::VectorXcd SolveToReciprocalSpace(Fourier::FFT& fftSolver, const Poisson::RealSpaceCell& realSpaceCell, Poisson::ReciprocalSpaceCell& reciprocalCell, Charges &charges)		
+		static inline Eigen::VectorXcd SolveToReciprocalSpace(/*Fourier::FFT& fftSolver,*/ const Poisson::RealSpaceCell& realSpaceCell, Poisson::ReciprocalSpaceCell& reciprocalCell, Charges& charges)
 		{
 			//transform charge density from real space to reciprocal space:
 			//Eigen::VectorXcd fieldReciprocal(realSpaceCell.Samples());
@@ -39,7 +39,7 @@ namespace Poisson {
 
 		static inline Eigen::VectorXcd SolveToRealSpace(Fourier::FFT& fftSolver, Poisson::RealSpaceCell& realSpaceCell, Poisson::ReciprocalSpaceCell& reciprocalCell, Charges &charges)
 		{
-			Eigen::VectorXcd fieldReciprocal = SolveToReciprocalSpace(fftSolver, realSpaceCell, reciprocalCell, charges);
+			Eigen::VectorXcd fieldReciprocal = SolveToReciprocalSpace(/*fftSolver,*/ realSpaceCell, reciprocalCell, charges);
 
 			Eigen::VectorXcd field(realSpaceCell.Samples());
 
