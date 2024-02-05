@@ -21,7 +21,6 @@ namespace Poisson {
 	{
 	public:
 		GaussianChargeDistribution(unsigned int z = 1);
-		~GaussianChargeDistribution();
 
 		unsigned int Z;
 

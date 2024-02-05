@@ -35,26 +35,28 @@ protected: // create from serialization only
 	CPoissonView();
 	DECLARE_DYNCREATE(CPoissonView)
 
-// Attributes
-public:
-	CPoissonDoc* GetDocument() const;
-// Operations
-// Overrides
-	virtual void OnDraw(CDC* pDC);  // overridden to draw this view
-protected:
-	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
-	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
-	virtual void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo);
 
-// Implementation
 public:
-	virtual ~CPoissonView();
+	~CPoissonView() override;
+
+// Attributes
+	CPoissonDoc* GetDocument() const;
+
+// Operations
 
 private:
+// Overrides
+	void OnDraw(CDC* pDC) override;  // overridden to draw this view
+	BOOL OnPreparePrinting(CPrintInfo* pInfo) override;
+	void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo) override;
+	void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo) override;
+	LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam) override;
+	void OnInitialUpdate() override;
+
+// Implementation
 	void Pipeline();
 
 	void PipelineView(vtkRenderer *ren, vtkImageDataGeometryFilter* geometryFilter, vtkWarpScalar* warp, vtkDataSetMapper* mapper, vtkActor* chartActor, vtkCubeAxesActor2D* axes);
-
 
 	vtkWin32OpenGLRenderWindow *renWin;
 	vtkRenderer *ren1;
@@ -78,22 +80,17 @@ private:
 	vtkCubeAxesActor2D* axes2;
 
 #ifdef _DEBUG
-	virtual void AssertValid() const;
-	virtual void Dump(CDumpContext& dc) const;
+	void AssertValid() const override;
+	void Dump(CDumpContext& dc) const override;
 #endif
 
-protected:
 // Generated message map functions
-protected:
 	afx_msg void OnFilePrintPreview();
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
-	DECLARE_MESSAGE_MAP()
-public:
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
-	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
-	virtual void OnInitialUpdate();
+	DECLARE_MESSAGE_MAP()
 };
 
 #ifndef _DEBUG  // debug version in PoissonView.cpp

@@ -102,10 +102,10 @@ void CPoissonDoc::Calculate()
 
 	const unsigned int start = realSpaceCell.GetSamples().X * realSpaceCell.GetSamples().Y * realSpaceCell.GetSamples().Z / 2;
 
-	for (unsigned int i = 0; i < realSpaceCell.GetSamples().Y; ++i)
-		for (unsigned int j = 0; j < realSpaceCell.GetSamples().Z; ++j)
+	for (int i = 0; i < realSpaceCell.GetSamples().Y; ++i)
+		for (int j = 0; j < realSpaceCell.GetSamples().Z; ++j)
 		{
-			unsigned int pos = start + realSpaceCell.GetSamples().Z * i + j;
+			const unsigned int pos = start + realSpaceCell.GetSamples().Z * i + j;
 
 			densityImage->SetScalarComponentFromDouble(i, j, 0, 0, charges.ChargeDensity(pos).real());
 		}
@@ -118,10 +118,10 @@ void CPoissonDoc::Calculate()
 
 	// slice the result - put the values in the 'image' data for VTK
 
-	for (unsigned int i = 0; i < realSpaceCell.GetSamples().Y; ++i)
-		for (unsigned int j = 0; j < realSpaceCell.GetSamples().Z; ++j)
+	for (int i = 0; i < realSpaceCell.GetSamples().Y; ++i)
+		for (int j = 0; j < realSpaceCell.GetSamples().Z; ++j)
 		{
-			unsigned int pos = start + realSpaceCell.GetSamples().Z * i + j;
+			const unsigned int pos = start + realSpaceCell.GetSamples().Z * i + j;
 
 			fieldImage->SetScalarComponentFromDouble(i, j, 0, 0, field(pos).real());
 		}
@@ -210,9 +210,9 @@ void CPoissonDoc::SetSearchContent(const CString& value)
 	}
 	else
 	{
-		CMFCFilterChunkValueImpl *pChunk = NULL;
+		CMFCFilterChunkValueImpl *pChunk = nullptr;
 		ATLTRY(pChunk = new CMFCFilterChunkValueImpl);
-		if (pChunk != NULL)
+		if (pChunk != nullptr)
 		{
 			pChunk->SetTextValue(PKEY_Search_Contents, value, CHUNK_TEXT);
 			SetChunkValue(pChunk);

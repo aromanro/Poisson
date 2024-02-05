@@ -80,12 +80,6 @@
     <ClCompile Include="FFT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Numerics.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PoissonSolver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RealSpace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

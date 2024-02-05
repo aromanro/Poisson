@@ -8,9 +8,6 @@ namespace Poisson {
 	class Numerics
 	{
 	public:
-		Numerics();
-		~Numerics();
-
 		static double Gaussian3D(double distance, double sigma) 
 		{ 
 			const double sigma2 = sigma * sigma;

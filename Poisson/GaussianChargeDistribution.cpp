@@ -8,9 +8,4 @@ namespace Poisson {
 	{
 	}
 
-
-	GaussianChargeDistribution::~GaussianChargeDistribution()
-	{
-	}
-
 }

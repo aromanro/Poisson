@@ -19,8 +19,11 @@ protected: // create from serialization only
 	CPoissonDoc();
 	DECLARE_DYNCREATE(CPoissonDoc)
 
-// Attributes
+
 public:
+	~CPoissonDoc() override;
+
+// Attributes
 	Fourier::FFT fft;
 	Poisson::RealSpaceCell realSpaceCell;
 	Poisson::ReciprocalSpaceCell reciprocalCell;
@@ -29,29 +32,25 @@ public:
 	vtkImageData* fieldImage;
 
 // Operations
-public:
 	void Calculate();
 
 // Overrides
-public:
-	virtual BOOL OnNewDocument();
-	virtual void Serialize(CArchive& ar);
+private:
+	BOOL OnNewDocument() override;
+	void Serialize(CArchive& ar) override;
 #ifdef SHARED_HANDLERS
-	virtual void InitializeSearchContent();
-	virtual void OnDrawThumbnail(CDC& dc, LPRECT lprcBounds);
+	void InitializeSearchContent() override;
+	void OnDrawThumbnail(CDC& dc, LPRECT lprcBounds) override;
 #endif // SHARED_HANDLERS
 
 // Implementation
-public:
-	virtual ~CPoissonDoc();
+
 #ifdef _DEBUG
-	virtual void AssertValid() const;
-	virtual void Dump(CDumpContext& dc) const;
+	void AssertValid() const override;
+	void Dump(CDumpContext& dc) const override;
 #endif
 
-protected:
 // Generated message map functions
-protected:
 	DECLARE_MESSAGE_MAP()
 
 #ifdef SHARED_HANDLERS

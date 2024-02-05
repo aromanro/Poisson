@@ -235,10 +235,8 @@
     <ClCompile Include="FFT.cpp" />
     <ClCompile Include="GaussianChargeDistribution.cpp" />
     <ClCompile Include="MainFrm.cpp" />
-    <ClCompile Include="Numerics.cpp" />
     <ClCompile Include="Poisson.cpp" />
     <ClCompile Include="PoissonDoc.cpp" />
-    <ClCompile Include="PoissonSolver.cpp" />
     <ClCompile Include="PoissonView.cpp" />
     <ClCompile Include="RealSpace.cpp" />
     <ClCompile Include="ReciprocalSpace.cpp" />

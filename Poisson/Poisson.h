@@ -19,18 +19,15 @@ class CPoissonApp : public CWinAppEx
 public:
 	CPoissonApp();
 
-
 // Overrides
-public:
-	virtual BOOL InitInstance();
+	BOOL InitInstance() override;
+	void PreLoadState() override;
+	void LoadCustomState() override;
+	void SaveCustomState() override;
 
 // Implementation
 	UINT  m_nAppLook;
 	BOOL  m_bHiColorIcons;
-
-	virtual void PreLoadState();
-	virtual void LoadCustomState();
-	virtual void SaveCustomState();
 
 	afx_msg void OnAppAbout();
 	DECLARE_MESSAGE_MAP()

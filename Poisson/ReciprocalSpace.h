@@ -9,7 +9,6 @@ namespace Poisson {
 	{
 	public:
 		ReciprocalSpaceCell(const RealSpaceCell& realSpaceCell);
-		~ReciprocalSpaceCell();
 
 		void Init(const RealSpaceCell& realSpaceCell);
 
@@ -21,7 +20,7 @@ namespace Poisson {
 		Eigen::Matrix<Vector3D<double>, Eigen::Dynamic, 1> LatticeVectors;
 		Eigen::Matrix<double, Eigen::Dynamic, 1> LatticeVectorsSquaredMagnitude;
 
-	protected:
+	private:
 		Vector3D<double> m_dim;
 
 		double volume;
