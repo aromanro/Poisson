@@ -1,6 +1,9 @@
 #pragma once
 
 #include <complex>
+
+#undef min
+#undef max
 #include <eigen/eigen>
 
 

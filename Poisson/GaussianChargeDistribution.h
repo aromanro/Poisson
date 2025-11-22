@@ -2,6 +2,9 @@
 
 
 #include <complex>
+
+#undef min
+#undef max
 #include <eigen/eigen>
 
 #include <vector>
