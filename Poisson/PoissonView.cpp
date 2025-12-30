@@ -302,8 +302,8 @@ LRESULT CPoissonView::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_TIMER:
 		if (iren && iren->GetInitialized() && GetSafeHwnd())
 		{
-			return vtkHandleMessage(GetSafeHwnd(), message, wParam, lParam);
-			//return vtkHandleMessage2(GetSafeHwnd(), message, wParam, lParam, iren);
+			//return vtkHandleMessage(GetSafeHwnd(), message, wParam, lParam);
+			return vtkHandleMessage2(GetSafeHwnd(), message, wParam, lParam, iren);
 		}
 	break;
   }
